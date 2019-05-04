@@ -20,6 +20,18 @@
           class="button--grey"
         >GitHub</a>
       </div>
+      <b-card>1234</b-card>
+      <b-tabs>
+          <b-tab title="hello">
+            123
+          </b-tab>
+          <b-tab title="신기해">
+            456
+          </b-tab>
+          <b-tab title="신기해">
+            789
+          </b-tab>
+      </b-tabs>
     </div>
   </section>
 </template>
