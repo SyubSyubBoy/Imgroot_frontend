@@ -3,7 +3,7 @@
     <h1>Imgroot</h1>
     <div class="user-tab">
       <img class="img-container" :src="src">
-      <p id="username">{{ username }}</p>
+      <p id="username">{{ $store.state.counter }}</p>
     </div>
   </header>
 </template>

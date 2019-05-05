@@ -53,6 +53,6 @@ module.exports = {
     */
     extend(config, ctx) {
     },
-    vender: ['axios']
+    vender: ['axios', 'vuex']
   }
 }
