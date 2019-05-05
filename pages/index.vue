@@ -1,52 +1,28 @@
 <template>
-  <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        imgroot-frontend
-      </h1>
-      <h2 class="subtitle">
-        My fabulous Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
-      </div>
-      <b-card>1234</b-card>
-      <b-tabs>
-          <b-tab title="hello">
-            123
-          </b-tab>
-          <b-tab title="신기해">
-            456
-          </b-tab>
-          <b-tab title="신기해">
-            789
-          </b-tab>
-      </b-tabs>
+  <div>
+    <Header/>
+    <div class="container">
+      <ul class="post-list">
+        <b-card class="post"></b-card>
+        <b-card class="post"></b-card>
+        <b-card class="post"></b-card>
+        <b-card class="post"></b-card>
+      </ul>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Header from "~/components/Header";
 
 export default {
   components: {
-    Logo
+    Header
   }
-}
+};
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -56,25 +32,11 @@ export default {
   text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.post-list {
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.post {
+  width: 50vw;
+  height: 30vh;
 }
 </style>
