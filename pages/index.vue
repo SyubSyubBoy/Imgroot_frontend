@@ -4,8 +4,8 @@
     <div class="container">
       <ul class="post-list">
         <li v-for="post in posts">
-          <b-card class="post">
-            {{ post.postTitle }}
+          <b-card class="post" :title=post.postTitle>
+            {{ post.postContent }}
           </b-card>
         </li>
       </ul>
@@ -48,5 +48,13 @@ export default {
 .post {
   width: 50vw;
   height: 30vh;
+}
+
+.post-list li {
+  margin-top: 2vh;
+}
+
+.post-list li:first-child {
+  margin-top: 15vh;
 }
 </style>

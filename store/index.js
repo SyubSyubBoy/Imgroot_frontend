@@ -4,7 +4,7 @@ import axios from 'axios';
 const store = () => new Vuex.Store({
   state: {
     user: { },
-    posts: { }
+    posts: []
   },
   mutations: {
     setUser(state, user) {
