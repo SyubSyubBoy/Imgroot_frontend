@@ -1,14 +1,38 @@
 import Vuex from 'vuex';
+import axios from 'axios';
 
 const store = () => new Vuex.Store({
   state: {
-    counter: 0
+    user: { },
+    posts: { }
   },
   mutations: {
-    increment(state) {
-      state.counter++
+    setUser(state, user) {
+      state.user = user;
+    },
+    setPost(state, posts) {
+      state.posts = posts;
+    }
+  },
+  actions: {
+    async getCurrentUser({ commit }) {
+      try {
+        const { data } = await axios.get('http://localhost:8080/user/1');
+        commit('setUser', data.data);
+      } catch (e) {
+        console.error(e);
+      }
+    },
+    async getPosts({ commit }) {
+      try {
+        const { data } = await axios.get('http://localhost:8080/user/1/post');
+        console.log(data);
+        commit('setPost', data.data);
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
-})
+});
 
 export default store;

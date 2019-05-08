@@ -3,12 +3,14 @@
     <h1>Imgroot</h1>
     <div class="user-tab">
       <img class="img-container" :src="src">
-      <p id="username">{{ $store.state.counter }}</p>
+      <p id="username">{{ $store.state.user.email }}</p>
     </div>
   </header>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {

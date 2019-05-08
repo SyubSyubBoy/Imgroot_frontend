@@ -3,10 +3,11 @@
     <Header/>
     <div class="container">
       <ul class="post-list">
-        <b-card class="post"></b-card>
-        <b-card class="post"></b-card>
-        <b-card class="post"></b-card>
-        <b-card class="post"></b-card>
+        <li v-for="post in posts">
+          <b-card class="post">
+            {{ post.postTitle }}
+          </b-card>
+        </li>
       </ul>
     </div>
   </div>
@@ -18,6 +19,14 @@ import Header from "~/components/Header";
 export default {
   components: {
     Header
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    posts() {
+      return this.$store.state.posts;
+    }
   }
 };
 </script>
@@ -33,6 +42,7 @@ export default {
 }
 
 .post-list {
+  list-style-type: none;
 }
 
 .post {
