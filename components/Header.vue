@@ -1,11 +1,15 @@
 <template>
-  <header class="header">
+  <div class="header">
     <h1>Imgroot</h1>
+    <div class="search-tab">
+      <b-form-input class="input-search" v-model=search placeholder="Search text.."></b-form-input>
+      <b-button class="btn-search" variant="primary" @click="onSearch">Search</b-button>
+    </div>
     <div class="user-tab">
-      <img class="img-container" :src="src">
+      <img class="img-container" :src=src>
       <p id="username">{{ $store.state.user.email }}</p>
     </div>
-  </header>
+  </div>
 </template>
 
 <script>
@@ -14,9 +18,13 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      src: '',
-      username: '12345',
+      search: ''
     };
+  },
+  methods: {
+    onSearch() {
+      this.$router.push('search');
+    }
   }
 };
 </script>
@@ -29,12 +37,13 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
   z-index: 1;
   background-color: white;
   padding-left: 5vw;
   padding-right: 5vw;
   margin: 0;
+  position: sticky;
+  top: 0;
 }
 
 .user-tab {
@@ -44,10 +53,24 @@ export default {
   align-items: center;
 }
 
+.search-tab {
+  width: 40vw;
+  display: flex;
+  justify-content: space-around;
+}
+
 .img-container {
   height: 3vh;
   width: 3vh;
   border-radius: 50%;
+}
+
+.input-search {
+  margin-left: 1vw;
+}
+
+.btn-search {
+  margin-left: 1vw;
 }
 
 #username {

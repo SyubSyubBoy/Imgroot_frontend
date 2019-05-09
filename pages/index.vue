@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header/>
     <div class="container">
       <ul class="post-list">
         <li v-for="post in posts">
@@ -14,12 +13,8 @@
 </template>
 
 <script>
-import Header from "~/components/Header";
 
 export default {
-  components: {
-    Header
-  },
   data() {
     return {};
   },
@@ -32,15 +27,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
-}
-
 .post-list {
   list-style-type: none;
 }
@@ -52,9 +38,5 @@ export default {
 
 .post-list li {
   margin-top: 2vh;
-}
-
-.post-list li:first-child {
-  margin-top: 15vh;
 }
 </style>

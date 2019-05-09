@@ -1,22 +1,40 @@
 <template>
   <div>
-    <nuxt />
+    <Header/>
+    <nuxt class="nuxt"/>
   </div>
 </template>
 
 <script>
+import Header from "~/components/Header";
+
 export default {
+  components: {
+    Header
+  },
   created() {
-    this.$store.dispatch('getCurrentUser');
-    this.$store.dispatch('getPosts');
+    this.$store.dispatch("getCurrentUser");
+    this.$store.dispatch("getPosts");
   }
-}
+};
 </script>
 
 
 <style>
-  * {
-    margin: 0;
-    box-sizing: border-box;
-  }
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.nuxt {
+  margin-top: 2vh;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
 </style>

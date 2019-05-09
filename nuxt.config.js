@@ -54,5 +54,10 @@ module.exports = {
     extend(config, ctx) {
     },
     vender: ['axios', 'vuex']
+  },
+
+  router: {
+    base: '/',
+    mode: 'history'
   }
 }
