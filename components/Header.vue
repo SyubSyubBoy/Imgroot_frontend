@@ -1,8 +1,10 @@
 <template>
   <div class="header">
-    <h1>Imgroot</h1>
+    <router-link to="/" class="logo">
+      <h1>Imgroot</h1>
+    </router-link>
     <div class="search-tab">
-      <b-form-input class="input-search" v-model=query placeholder="Search text.."></b-form-input>
+      <b-form-input class="input-search" v-model="query" placeholder="Search text.."></b-form-input>
       <b-button class="btn-search" variant="primary" @click="onSearch">Search</b-button>
     </div>
     <div class="user-tab">
@@ -13,12 +15,12 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   data() {
     return {
-      query: ''
+      query: ""
     };
   },
   computed: {
@@ -28,7 +30,7 @@ export default {
   },
   methods: {
     onSearch() {
-      this.$router.push({ name: 'search', params: { q: this.query } });
+      this.$router.push({ name: "search", params: { q: this.query } });
     }
   }
 };
@@ -49,6 +51,15 @@ export default {
   margin: 0;
   position: sticky;
   top: 0;
+}
+
+.logo {
+  color: #000;
+  text-decoration: none;
+}
+
+.logo :hover {
+  color: #000;
 }
 
 .user-tab {
