@@ -3,9 +3,7 @@
     <div class="container">
       <ul class="post-list">
         <li v-for="post in posts" :key="post.postId">
-          <b-card class="post" :title="post.postTitle">
-            {{ post.postContent }}
-          </b-card>
+          <PostCard :title="post.postTitle" :content="post.postContent"/>
         </li>
       </ul>
     </div>
@@ -13,8 +11,12 @@
 </template>
 
 <script>
+import PostCard from '~/components/PostCard';
 
 export default {
+  components: {
+    PostCard
+  },
   data() {
     return {};
   },
@@ -29,11 +31,6 @@ export default {
 <style scoped>
 .post-list {
   list-style-type: none;
-}
-
-.post {
-  width: 50vw;
-  height: 30vh;
 }
 
 .post-list li {
