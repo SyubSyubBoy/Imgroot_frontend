@@ -2,11 +2,11 @@
   <div class="header">
     <h1>Imgroot</h1>
     <div class="search-tab">
-      <b-form-input class="input-search" v-model=search placeholder="Search text.."></b-form-input>
+      <b-form-input class="input-search" v-model=query placeholder="Search text.."></b-form-input>
       <b-button class="btn-search" variant="primary" @click="onSearch">Search</b-button>
     </div>
     <div class="user-tab">
-      <img class="img-container" :src=src>
+      <img class="img-container" src="user.png">
       <p id="username">{{ $store.state.user.email }}</p>
     </div>
   </div>
@@ -18,12 +18,17 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      search: ''
+      query: ''
     };
+  },
+  computed: {
+    src() {
+      return this.$store.state.profilePicture;
+    }
   },
   methods: {
     onSearch() {
-      this.$router.push('search');
+      this.$router.push({ name: 'search', params: { q: this.query } });
     }
   }
 };
@@ -60,9 +65,10 @@ export default {
 }
 
 .img-container {
-  height: 3vh;
-  width: 3vh;
+  height: 5vh;
+  width: 5vh;
   border-radius: 50%;
+  margin-right: 1vw;
 }
 
 .input-search {

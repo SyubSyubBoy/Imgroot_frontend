@@ -2,8 +2,8 @@
   <div>
     <div class="container">
       <ul class="post-list">
-        <li v-for="post in posts">
-          <b-card class="post" :title=post.postTitle>
+        <li v-for="post in posts" :key="post.postId">
+          <b-card class="post" :title="post.postTitle">
             {{ post.postContent }}
           </b-card>
         </li>

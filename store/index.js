@@ -4,7 +4,8 @@ import axios from 'axios';
 const store = () => new Vuex.Store({
   state: {
     user: { },
-    posts: []
+    posts: [],
+    profilePictrue: '~assets/public/user.png'
   },
   mutations: {
     setUser(state, user) {
@@ -26,7 +27,6 @@ const store = () => new Vuex.Store({
     async getPosts({ commit }) {
       try {
         const { data } = await axios.get('http://localhost:8080/post/feed/1');
-        console.log(data);
         commit('setPost', data.data);
       } catch (e) {
         console.error(e);
