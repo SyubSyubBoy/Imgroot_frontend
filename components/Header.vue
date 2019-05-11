@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     onSearch() {
-      this.$router.push({ name: "search", params: { q: this.query } });
+      this.$router.push({ path: '/search', query: { q: this.query } });
     }
   }
 };

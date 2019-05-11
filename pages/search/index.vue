@@ -1,38 +1,49 @@
 <template>
   <div class="container">
-    <h1>Search Result: </h1>
+    <h1>Search Result:</h1>
     <ul>
       <li v-for="result in posts" :key="result">
-        <div>
-          {{ result.postTitle }}
-        </div>
+        <div>{{ result.postTitle }}</div>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "search",
   data() {
     return {
       posts: []
-    }
+    };
   },
   async created() {
-    const { q } = this.$route.params;
+    this.getPosts();
+  },
+  watch: {
+    async $route(to, from) {
+      const queryTo = to.query.q;
+      const queryFrom = from.query.q;
 
-    console.log(q);
+      if (queryTo !== queryFrom) {
+        this.getPosts();
+      }
+    }
+  },
+  methods: {
+    async getPosts() {
+      const { q } = this.$route.query;
 
-    try {
-      const { data } = await axios.get(`http://localhost:8080/search/post?q=${q}`);
-      console.log(data);
-
-      this.posts = data.data;
-    } catch (e) {
-      console.error(e);
+      try {
+        const { data } = await axios.get(
+          `http://localhost:8080/search/post?q=${q}`
+        );
+        this.posts = data.data;
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 };
