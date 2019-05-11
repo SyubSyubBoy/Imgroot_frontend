@@ -29,6 +29,14 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
 .post-list {
   list-style-type: none;
 }

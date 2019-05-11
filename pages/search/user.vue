@@ -2,8 +2,8 @@
   <div class="container">
     <h1>Search Result:</h1>
     <ul>
-      <li v-for="result in posts" :key="result">
-        <div>{{ result.postTitle }}</div>
+      <li v-for="result in user" :key="result.userId">
+        <div>{{ result.name }}</div>
       </li>
     </ul>
   </div>
@@ -16,21 +16,11 @@ export default {
   name: "search",
   data() {
     return {
-      posts: []
+      users: []
     };
   },
   async created() {
     this.getPosts();
-  },
-  watch: {
-    async $route(to, from) {
-      const queryTo = to.query.q;
-      const queryFrom = from.query.q;
-
-      if (queryTo !== queryFrom) {
-        this.getPosts();
-      }
-    }
   },
   methods: {
     async getPosts() {
@@ -38,7 +28,7 @@ export default {
 
       try {
         const { data } = await axios.get(
-          `http://localhost:8080/search/post?q=${q}`
+          `http://localhost:8080/search/user?q=${q}`
         );
         this.posts = data.data;
       } catch (e) {
