@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h1>Search Result:</h1>
     <ul>
       <li v-for="result in trees" :key="result.treeId">
         <div>{{ result.treeName }}</div>
@@ -30,7 +29,7 @@ export default {
         const { data } = await axios.get(
           `http://localhost:8080/search/tree?q=${q}`
         );
-        this.posts = data.data;
+        this.trees = data.data;
       } catch (e) {
         console.error(e);
       }

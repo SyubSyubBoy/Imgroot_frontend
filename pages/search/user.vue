@@ -1,9 +1,8 @@
 <template>
   <div class="container">
-    <h1>Search Result:</h1>
     <ul>
-      <li v-for="result in user" :key="result.userId">
-        <div>{{ result.name }}</div>
+      <li v-for="result in users" :key="result.userId">
+        <div>{{ result.username }}</div>
       </li>
     </ul>
   </div>
@@ -30,7 +29,7 @@ export default {
         const { data } = await axios.get(
           `http://localhost:8080/search/user?q=${q}`
         );
-        this.posts = data.data;
+        this.users = data.data;
       } catch (e) {
         console.error(e);
       }

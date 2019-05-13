@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h1>Search Result:</h1>
     <ul>
       <li v-for="result in posts" :key="result.postId">
         <div>{{ result.postTitle }}</div>

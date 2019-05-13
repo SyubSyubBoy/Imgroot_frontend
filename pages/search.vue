@@ -1,5 +1,6 @@
 <template>
   <div class="body">
+    <h1>Search Result: {{ $route.query.q }}</h1>
     <b-card class="container" no-body>
       <b-tabs card v-model="tabIndex">
         <b-tab title="Post" active>
@@ -47,6 +48,7 @@ export default {
     $route(to, from) {
       console.log(to);
       if (to.path === '/search') {
+        this.tabIndex = 0;
         this.$router.push({ path: '/search/post', query: to.query });
       }
     }
@@ -60,9 +62,6 @@ h1 {
 }
 
 .body {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   margin-top: 5px;
 }
 
