@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "search",
+  name: 'search',
   data() {
     return {
       posts: []

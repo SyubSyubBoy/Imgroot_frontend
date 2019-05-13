@@ -17,6 +17,9 @@ export default {
   components: {
     PostCard
   },
+  created() {
+    this.$store.dispatch("getFeed");
+  },
   data() {
     return {};
   },

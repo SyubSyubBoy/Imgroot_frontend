@@ -14,7 +14,8 @@ export default {
   },
   created() {
     this.$store.dispatch("getCurrentUser");
-    this.$store.dispatch("getPosts");
+    this.$store.dispatch("getMyTrees");
+    this.$store.dispatch("getFollowingTrees");
   }
 };
 </script>

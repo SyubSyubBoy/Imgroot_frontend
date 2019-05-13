@@ -2,17 +2,21 @@
   <div class="container">
     <ul>
       <li v-for="result in users" :key="result.userId">
-        <div>{{ result.username }}</div>
+        <UserCard :username="result.username"/>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
+import UserCard from '~/components/UserCard';
 
 export default {
-  name: "search",
+  name: 'search',
+  components: {
+    UserCard
+  },
   data() {
     return {
       users: []
