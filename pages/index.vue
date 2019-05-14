@@ -11,7 +11,7 @@
       </div>
       <ul class="post-list">
         <li v-for="post in posts" :key="post.postId">
-          <PostCard :title="post.postTitle" :content="post.postContent"/>
+          <PostCard  :postId="post.postId" :title="post.postTitle" :content="post.postContent"/>
         </li>
       </ul>
     </div>

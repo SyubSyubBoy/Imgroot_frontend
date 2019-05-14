@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     goTree() {
-      this.$router.push({ path: `/mytrees/${this.treeId}` })
+      this.$router.push({ path: `/mytrees/${this.treeId}` });
     }
   }
 };

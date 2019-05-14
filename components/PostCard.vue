@@ -1,14 +1,20 @@
 <template>
   <b-card class="post" :title="title">
     {{ content }}
+    <b-button v-if="isMyTree">수정</b-button>
   </b-card>
 </template>
 
 <script>
 export default {
-  props: ['title', 'content'],
+  props: ['postId', 'title', 'content'],
   data() {
     return {};
+  },
+  computed: {
+    isMyTree() {
+      
+    }
   }
 };
 </script>

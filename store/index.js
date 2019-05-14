@@ -18,12 +18,12 @@ const store = () => new Vuex.Store({
         return false;
     },
     isMyTree: (state) => (treeId) => {
-      const found = state.myTrees.find(t => t.treeId === treeId);
-
-      if (found)
-        return true;
-      else
-        return false;
+      for (let i in state.myTrees) {
+        if (state.myTrees[i].treeId == treeId)
+          return true;
+      }
+      
+      return false;
     },
     getTreeById: (state) => (treeId) => {
       for(let i in state.myTrees) {
