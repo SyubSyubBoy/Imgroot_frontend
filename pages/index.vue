@@ -2,7 +2,12 @@
   <div>
     <div class="container">
       <div class="left-aside">
-        <PostForm />
+        <PostForm/>
+        <div>
+          <router-link to="/mytrees">
+            <b-button>내 트리 보기</b-button>
+          </router-link>
+        </div>
       </div>
       <ul class="post-list">
         <li v-for="post in posts" :key="post.postId">
@@ -15,19 +20,20 @@
 
 <script>
 import PostCard from "~/components/PostCard";
-import PostForm from '~/components/PostForm';
+import PostForm from "~/components/PostForm";
 
 export default {
   components: {
-    PostCard, PostForm
+    PostCard,
+    PostForm
   },
-  created() {
+  mounted() {
     this.$store.dispatch("getFeed");
   },
   computed: {
     posts() {
       return this.$store.state.posts;
-    },
+    }
   }
 };
 </script>
@@ -58,7 +64,7 @@ export default {
   text-align: left;
 }
 
-.form-buttons {
-  text-align: right;
+.left-aside > * {
+  margin-bottom: 0.5em;
 }
 </style>

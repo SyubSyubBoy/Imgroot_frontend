@@ -10,7 +10,7 @@
 
 <script>
 import axios from 'axios';
-import TreeCard from '~/components/TreeCard';
+import TreeCard from '~/components/search/TreeResult';
 
 export default {
   name: 'search',

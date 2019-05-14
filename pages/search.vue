@@ -25,6 +25,8 @@ export default {
     };
   },
   mounted() {
+    this.$store.dispatch("getMyTrees");
+    this.$store.dispatch("getFollowingTrees");
     this.$router.push({ path: '/search/post', query: this.$route.query });
   },
   watch: {

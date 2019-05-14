@@ -10,7 +10,7 @@
 
 <script>
 import axios from 'axios';
-import UserCard from '~/components/UserCard';
+import UserCard from '~/components/search/UserResult';
 
 export default {
   name: 'search',

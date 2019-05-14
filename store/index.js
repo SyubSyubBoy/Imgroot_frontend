@@ -24,6 +24,12 @@ const store = () => new Vuex.Store({
         return true;
       else
         return false;
+    },
+    getTreeById: (state) => (treeId) => {
+      for(let i in state.myTrees) {
+        if (state.myTrees[i].treeId == treeId)
+          return state.myTrees[i];
+      }
     }
   },
   mutations: {

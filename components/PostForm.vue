@@ -53,11 +53,16 @@ export default {
         const { data } = await axios.post("http://localhost:8080/post", {
           ...this.form
         });
-        console.log('result', data);
+        this.form = {
+          treeId: "",
+          postTitle: "",
+          postContent: ""
+        };
+        alert("Upload successful");
+        this.$bvModal.hide("modal-post");
       } catch (e) {
         console.error(e);
       }
-
     },
     onReset(e) {
       e.preventDefault();
@@ -72,6 +77,9 @@ export default {
 </script>
 
 <style scoped>
+.form-buttons {
+  text-align: right;
+}
 </style>
 
 
