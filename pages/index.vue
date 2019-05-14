@@ -11,7 +11,7 @@
       </div>
       <ul class="post-list">
         <li v-for="post in posts" :key="post.postId">
-          <PostCard  :postId="post.postId" :title="post.postTitle" :content="post.postContent"/>
+          <PostCard :post="post"/>
         </li>
       </ul>
     </div>
@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     posts() {
-      return this.$store.state.posts;
+      return this.$store.state.feed;
     }
   }
 };

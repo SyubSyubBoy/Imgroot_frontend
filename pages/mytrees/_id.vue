@@ -5,7 +5,7 @@
     <div class="container">
       <ul class="post-list">
         <li class="post-list-li" v-for="post in posts" :key="post.postId">
-          <PostCard :postId="post.postId" :title="post.postTitle" :content="post.postContent"/>
+          <PostCard :post="post"/>
         </li>
       </ul>
     </div>
@@ -20,19 +20,8 @@ export default {
   components: {
     PostCard
   },
-  data() {
-    return {
-      posts: []
-    }
-  },
   async created() {
-    try {
-        const { data } = await axios.get("http://localhost:8080/tree/1/post");
-        this.posts = data.data;
-        console.log(data);
-      } catch (e) {
-        console.error(e);
-      }
+    this.$store.dispatch('getTreePosts', this.treeId);
   },
   validate({ params }) {
     return /^\d+$/.test(params.id);
@@ -42,12 +31,10 @@ export default {
       return this.$route.params.id;
     },
     tree() {
-      return this.$store.getters.getTreeById(this.treeId);
-    }
-  },
-  methods: {
-    async getPosts() {
-      
+      return this.$store.getters.getTreeById(this.$route.params.id);
+    },
+    posts() {
+      return this.$store.state.treePosts;
     }
   }
 };

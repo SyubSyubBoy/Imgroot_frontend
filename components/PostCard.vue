@@ -1,19 +1,24 @@
 <template>
-  <b-card class="post" :title="title">
-    {{ content }}
-    <b-button v-if="isMyTree">수정</b-button>
+  <b-card class="post" :title="post.postTitle">
+    <div>{{ post.postContent }}</div>
+    <PostFormUpdate :post="post" v-if="isMyTree"/>
   </b-card>
 </template>
 
 <script>
+import PostFormUpdate from '~/components/PostFormUpdate';
+
 export default {
-  props: ['postId', 'title', 'content'],
+  components: {
+    PostFormUpdate
+  },
+  props: ["post"],
   data() {
     return {};
   },
   computed: {
     isMyTree() {
-      
+      return this.$store.getters.isMyTree(this.post.treeId);
     }
   }
 };
