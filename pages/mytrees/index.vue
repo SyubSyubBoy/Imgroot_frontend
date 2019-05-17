@@ -3,7 +3,7 @@
     <div class="container">
       <ul class="post-list">
         <li v-for="tree in myTrees" :key="tree.treeId">
-          <TreeCard  :treeId="tree.treeId" :treeName="tree.treeName" :treeGreeting="tree.treeGreeting"/>
+          <TreeCard  :tree="tree"/>
         </li>
       </ul>
     </div>

@@ -3,6 +3,7 @@
     <div class="container">
       <div class="left-aside">
         <PostForm/>
+        <TreeForm/>
         <div>
           <router-link to="/mytrees">
             <b-button>내 트리 보기</b-button>
@@ -21,11 +22,13 @@
 <script>
 import PostCard from "~/components/PostCard";
 import PostForm from "~/components/PostForm";
+import TreeForm from "~/components/TreeForm";
 
 export default {
   components: {
     PostCard,
-    PostForm
+    PostForm,
+    TreeForm
   },
   mounted() {
     this.$store.dispatch("getFeed");

@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-button @click="$bvModal.show(modalId)">수정하기</b-button>
-    <b-modal :id="modalId" title="새 글 쓰기" hide-footer>
+    <b-modal :id="modalId" title="수정하기" hide-footer>
       <b-form @submit="onSubmit" @reset="onReset">
         <b-form-group id="form-group-1" label="트리 선택" label-for="form-input-1">
           <b-form-select id="form-input-1" :value="treeName">
