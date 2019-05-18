@@ -4,6 +4,7 @@
       <div class="left-aside">
         <PostForm/>
         <TreeForm/>
+        <FacebookLoginButton/>
         <div>
           <router-link to="/mytrees">
             <b-button>내 트리 보기</b-button>
@@ -23,12 +24,14 @@
 import PostCard from "~/components/PostCard";
 import PostForm from "~/components/PostForm";
 import TreeForm from "~/components/TreeForm";
+import FacebookLoginButton from "~/components/FacebookLoginButton";
 
 export default {
   components: {
     PostCard,
     PostForm,
-    TreeForm
+    TreeForm,
+    FacebookLoginButton
   },
   mounted() {
     this.$store.dispatch("getFeed");
