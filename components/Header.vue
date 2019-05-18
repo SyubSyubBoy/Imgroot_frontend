@@ -30,7 +30,17 @@ export default {
   },
   methods: {
     onSearch() {
-      this.$router.push({ name: "search", params: { q: this.query } });
+      this.$router.push({ path: '/search', query: { q: this.query } });
+    }
+  },
+  watch: {
+    async $route(to, from) {
+      const queryTo = to.query.q;
+      const queryFrom = from.query.q;
+
+      if (queryTo !== queryFrom) {
+        this.getPosts();
+      }
     }
   }
 };

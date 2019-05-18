@@ -14,7 +14,8 @@ export default {
   },
   created() {
     this.$store.dispatch("getCurrentUser");
-    this.$store.dispatch("getPosts");
+    this.$store.dispatch("getMyTrees");
+    this.$store.dispatch("getFollowingTrees");
   }
 };
 </script>
@@ -28,13 +29,5 @@ export default {
 
 .nuxt {
   margin-top: 2vh;
-}
-
-.container {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
 }
 </style>
